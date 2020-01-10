@@ -16,7 +16,8 @@ import { ProveedorSesionProvider } from '../../providers/proveedor-sesion/provee
 })
 export class InicioPage {
 
-  nombre_usuario:any; 
+  nombre_usuario:any;
+  codigo:any; 
 
   constructor(public navCtrl: NavController,
       public navParams: NavParams,
@@ -30,6 +31,7 @@ export class InicioPage {
 
   mostrar_usuario(){
      this.nombre_usuario=this.ses.getCampo("nombre","usu");
+     this.codigo=this.ses.getCampo("usuario_id","usu");
   }
 
 }
