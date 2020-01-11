@@ -1,6 +1,7 @@
 import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
+import { ProveedorSesionProvider } from '../proveedor-sesion/proveedor-sesion';
 
 
 /*
@@ -13,8 +14,10 @@ import 'rxjs/add/operator/map';
 export class ProveedorUsuarioProvider {
 
   private UrlLogin: string ="http://localhost/miproyecto/login_user.php";
-  
-  constructor(public http:Http) {
+  private UrlPerfiles:string ="http://localhost/miproyecto/perfiles_user.php?";
+
+  constructor(public http:Http,
+              public ses:ProveedorSesionProvider) {
     console.log('Hello ProveedorUsuarioProvider Provider');
   }
 
@@ -23,6 +26,13 @@ export class ProveedorUsuarioProvider {
       { params: { codigo_usuario: usuario, clave_usuario: password } })
    .map(res => res.json());
 
+  }
+
+  consume_perfiles(){
+    let usuario:any = this.ses.getCampo("usuario_id","usu");
+    return this.http.get(this.UrlPerfiles,
+      { params: { codigo_usuario: usuario} })
+   .map(res => res.json());
   }
 
 }
