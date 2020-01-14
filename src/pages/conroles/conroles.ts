@@ -17,6 +17,7 @@ import { ProveedorUsuarioProvider } from '../../providers/proveedor-usuario/prov
 export class ConrolesPage {
 
   unosroles:any;
+  test:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public user:ProveedorUsuarioProvider) {
   }
@@ -57,6 +58,13 @@ export class ConrolesPage {
     una_accion:'ACTUALIZAR'});
 
   }
+
+  myCallbackFunction = (_params) => {
+    return new Promise((resolve, reject) => {
+      this.test = _params;
+      resolve();
+    });
+ 
 
 
 }
