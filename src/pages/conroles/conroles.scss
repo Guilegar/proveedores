@@ -1,3 +1,11 @@
 page-conroles {
-
+    .interna{
+        button:nth-child(odd){
+            background-color: #d9d2f1;
+        }
+        button:nth-child(even){
+            background-color: #ECEDEF;
+        }
+    }
+ 
 }

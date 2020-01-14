@@ -14,7 +14,8 @@ import { ProveedorSesionProvider } from '../proveedor-sesion/proveedor-sesion';
 export class ProveedorUsuarioProvider {
 
   private UrlLogin: string ="http://localhost/miproyecto/login_user.php";
-  private UrlPerfiles:string ="http://localhost/miproyecto/perfiles_user.php?";
+  private UrlPerfiles:string ="http://localhost/miproyecto/perfiles_user.php";
+  private UrlRoles: string = "http://localhost/miproyecto/consulta_roles.php";
 
   constructor(public http:Http,
               public ses:ProveedorSesionProvider) {
@@ -33,6 +34,12 @@ export class ProveedorUsuarioProvider {
     return this.http.get(this.UrlPerfiles,
       { params: { codigo_usuario: usuario} })
    .map(res => res.json());
+  }
+
+  consume_roles(){
+    return this.http.get(this.UrlRoles)
+    .map(res => res.json());
+
   }
 
 }
