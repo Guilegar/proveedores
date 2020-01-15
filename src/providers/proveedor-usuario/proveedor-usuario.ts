@@ -16,6 +16,7 @@ export class ProveedorUsuarioProvider {
   private UrlLogin: string ="http://localhost/miproyecto/login_user.php";
   private UrlPerfiles:string ="http://localhost/miproyecto/perfiles_user.php";
   private UrlRoles: string = "http://localhost/miproyecto/consulta_roles.php";
+  private UrlCrudRoles: string="http://localhost/miproyecto/crud_roles.php";
 
   constructor(public http:Http,
               public ses:ProveedorSesionProvider) {
@@ -39,7 +40,29 @@ export class ProveedorUsuarioProvider {
   consume_roles(){
     return this.http.get(this.UrlRoles)
     .map(res => res.json());
-
   }
+
+  utilizaCrudRol(
+        unCodigo_rol: any,
+        unaDesc_rol: any,
+        unaEntrada_rol: any,
+        unIcono_rol: any,
+        unaOperacion: any) {
+      
+        return this.http.get(this.UrlCrudRoles,
+          {
+            params: {
+              codigo_rol: unCodigo_rol,
+              desc_rol: unaDesc_rol,
+              entrada_rol: unaEntrada_rol,
+              icono_rol: unIcono_rol,
+              accion: unaOperacion
+      
+            }
+          })
+          .map(res => res.json());
+  }
+ 
+
 
 }

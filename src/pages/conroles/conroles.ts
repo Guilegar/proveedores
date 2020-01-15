@@ -64,7 +64,7 @@ export class ConrolesPage {
       this.test = _params;
       resolve();
     });
- 
+  }
 
 
 }
