@@ -16,7 +16,9 @@ export class ProveedorUsuarioProvider {
   private UrlLogin: string ="http://localhost/miproyecto/login_user.php";
   private UrlPerfiles:string ="http://localhost/miproyecto/perfiles_user.php";
   private UrlRoles: string = "http://localhost/miproyecto/consulta_roles.php";
+  private UrlUsuarios: string = "http://localhost/miproyecto/consulta_usuarios.php";
   private UrlCrudRoles: string="http://localhost/miproyecto/crud_roles.php";
+  private UrlCrudUsuarios: string="http://localhost/miproyecto/crud_usuarios.php";
 
   constructor(public http:Http,
               public ses:ProveedorSesionProvider) {
@@ -42,6 +44,11 @@ export class ProveedorUsuarioProvider {
     .map(res => res.json());
   }
 
+  consume_usuarios(){
+    return this.http.get(this.UrlUsuarios)
+    .map(res => res.json());
+  }
+
   utilizaCrudRol(
         unCodigo_rol: any,
         unaDesc_rol: any,
@@ -62,7 +69,26 @@ export class ProveedorUsuarioProvider {
           })
           .map(res => res.json());
   }
- 
+  
+
+  utilizaCrudUsuario(
+    unCodigo_usu: any,
+    unNom_usu: any,
+    unaClave_usu: any,
+    unaOperacion: any) {
+  
+    return this.http.get(this.UrlCrudUsuarios,
+      {
+        params: {
+          codigo_usu: unCodigo_usu,
+          nom_usu: unNom_usu,
+          clave_usu: unaClave_usu,
+          accion: unaOperacion
+  
+        }
+      })
+      .map(res => res.json());
+}
 
 
 }

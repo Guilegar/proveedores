@@ -160,6 +160,69 @@ export class RolesPage {
   }
 }
 
+eliminarRol() {
+  //this.datosEquipo.DESCRIPCION.length > 0
+    if (this.miRol.rol_id !== -1 ) {
+
+        //Aqui puedo realizar la insercion con los
+        //datos del la Pagina
+        this.user.utilizaCrudRol(
+          this.miRol.rol_id,
+          this.miRol.descripcion,
+          this.miRol.entrada,
+          this.miRol.icono,
+          'eliminar').subscribe(res => {
+          //Aqui es resultado es cargado a la variable como JSON
+          console.log(res);
+          console.log(res[0].p_out);
+          if (res[0].p_out == "elimino registro") {
+               this.mostrarToast('Registro eliminado', 8000);
+               this.navCtrl.push('conroles');
+              //this.cancelarEquipo();
+          }
+          else {
+              this.mostrarToast('Registro  No eliminó', 2000);
+          }
+
+          }, error => {
+            console.log(error);
+          });
+    }
+    else {
+       console.log('No Puedo eliminar');
+       this.showAlert('Error', 'Nada que eliminar');
+   }
+}
+
+showmensaje2() {
+ 
+  let alert = this.alertCtrl.create({
+    title: 'Confirmación',
+    message: 'Seguro de eliminar registro?',
+    buttons: [
+      {
+        text: 'Cancelar',
+        cssClass: 'icon-color',
+        handler: () => {
+          console.log('Canceló');
+
+        }
+      },
+      {
+        text: 'Eliminar',
+        cssClass: 'icon-color',
+        handler: () => {
+          console.log('eliminó');
+          this.eliminarRol();
+        }
+      }
+    ]
+  });
+  alert.present();
+
+
+}
+
  
 
 }
