@@ -1,3 +1,10 @@
 page-conusuarios {
-
+    .interna{
+        button:nth-child(odd){
+            background-color: #39bef3;
+        }
+        button:nth-child(even){
+            background-color: rgb(236, 235, 247);
+        }
+    }
 }

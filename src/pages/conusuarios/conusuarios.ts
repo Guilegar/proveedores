@@ -49,13 +49,12 @@ creaUsuario(){
 
 }
 
-vaarol(id:any,desc:any,entrada:any,icono:any){
+vaarol(id:any,nom:any,entrada:any){
   this.navCtrl.push('usuarios',
-  {unrol:id,
-   undesc:desc,
-   unent:entrada,
-   unicon:icono,
-  una_accion:'ACTUALIZAR'});
+  {unusuario:id,
+   unnombre:nom,
+   unaclave:entrada,
+   una_accion:'ACTUALIZAR'});
 
 }
 
