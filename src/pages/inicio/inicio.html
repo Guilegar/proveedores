@@ -7,16 +7,16 @@
 <ion-menu [content]="hola">
     <ion-header>
         <ion-toolbar color=colormenu>
-        <ion-title> Menu</ion-title>
+        <ion-title> Menucito</ion-title>
         </ion-toolbar>
     </ion-header>
    
     <ion-content>
         <ion-list *ngFor="let perfil of unosperfiles">
             <ion-item>
-                <ion-icon name="{{perfil.ICONO}}" item-left></ion-icon>
-                <button color=primary ion-item clear (click)="iraopcion(perfil.ENTRADA)" >
-                    <b>{{perfil.DESCRIPCION}}</b>
+                <ion-icon name="{{perfil.icono}}" item-left></ion-icon>
+                <button color=primary ion-item clear (click)="iraopcion(perfil.entrada)" >
+                    <b>{{perfil.descripcion}}</b>
                 </button>
            </ion-item>
         </ion-list>

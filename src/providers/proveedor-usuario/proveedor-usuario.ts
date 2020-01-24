@@ -13,8 +13,12 @@ import { ProveedorSesionProvider } from '../proveedor-sesion/proveedor-sesion';
 @Injectable()
 export class ProveedorUsuarioProvider {
 
-  private UrlLogin: string ="http://localhost/miproyecto/login_user.php";
-  private UrlPerfiles:string ="http://localhost/miproyecto/perfiles_user.php";
+  //private UrlLogin: string ="http://localhost/miproyecto/login_user.php";
+  private UrlLogin: string ="https://avatarsp.000webhostapp.com/avatars/rest/index.php/Pokemon/login_user";
+
+  //private UrlPerfiles:string ="http://localhost/miproyecto/perfiles_user.php";
+  private UrlPerfiles:string ="https://avatarsp.000webhostapp.com/avatars/rest/index.php/Pokemon/perfiles_user";
+  
   private UrlRoles: string = "http://localhost/miproyecto/consulta_roles.php";
   private UrlUsuarios: string = "http://localhost/miproyecto/consulta_usuarios.php";
   private UrlCrudRoles: string="http://localhost/miproyecto/crud_roles.php";
